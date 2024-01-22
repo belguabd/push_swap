@@ -1,0 +1,3 @@
+tab -> error
+
+empty arg or only spaces -> error
