@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 02:44:36 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/22 15:06:02 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:48:37 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void rrr(t_nbrs **stacka, t_nbrs **stackb);
 void rrb(t_nbrs **stackb);
 void ft_remove(t_nbrs **stacka);
 void pa(t_nbrs **stacka, t_nbrs **stackb);
+void pb(t_nbrs **stacka, t_nbrs **stackb);
+
 #endif

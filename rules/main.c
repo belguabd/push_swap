@@ -35,14 +35,14 @@ int main()
     stackb->next = ft_addnew_nbr(-2);
     stackb->next->next = ft_addnew_nbr(3);
     stackb->next->next->next = ft_addnew_nbr(6);
-
+    
     // rrr(&stacka, &stackb);
     printf("************stacka************\n");
     show_numbers(stacka);
     printf("************stackb************\n");
     show_numbers(stackb);
     // rrb(&stacka);
-    pa(&stacka,&stackb);
+    pb(&stacka,&stackb);
     printf("=========+++stacka++=========\n");
     show_numbers(stacka);
     printf("=========+++stackb++=========\n");
