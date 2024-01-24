@@ -6,27 +6,75 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/21 21:23:03 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:03:46 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "push_swap.h"
-#include <limits.h>
-#include <stdbool.h>
-#include <unistd.h>
+
 void show_linked(t_nbrs *head)
 {
+    printf("+--------+-------+\n");
+    printf("| Number | Index |\n");
+    printf("+--------+-------+\n");
+
     while (head)
     {
-        printf("%d =>", head->number);
-        printf("   {%d}\n", head->index);
-
+        printf("| %-6d | %-5d |\n", head->number, head->index);
         head = head->next;
     }
+
+    printf("+--------+-------+\n");
+}
+void ft_sort_two(t_nbrs *stacka)
+{
+    sa(&stacka);
+}
+void ft_sort_three(t_nbrs **stacka)
+{
+    int a = (*stacka)->number;
+    int b = (*stacka)->next->number;
+    int c = (*stacka)->next->next->number;
+    if (a > b && b > c && a > c)
+    {
+        sa(stacka);
+        rra(stacka);
+    }
+    else if (a > b && a > c)
+        ra(stacka);
+    else if (a > b && a < c)
+        sa(stacka);
+    else if (a < b && a < c)
+    {
+        sa(stacka);
+        ra(stacka);
+    }
+    else if (a < b && a > c)
+        rra(stacka);
+}
+bool check_sorted(t_nbrs *head)
+{
+
+    while (head->next)
+    {
+        if (head->number > head->next->number)
+            return (false);
+        head = head->next;
+    }
+    return (true);
 }
 
+int ft_lstsize(t_nbrs *head)
+{
+    int count;
+    count = 0;
+    while (head)
+    {
+        count++;
+        head = head->next;
+    }
+    return (count);
+}
 void sort_list(t_nbrs *head)
 {
     t_nbrs *temp;
@@ -75,7 +123,7 @@ void ft_lstadd_end(t_nbrs **lst, t_nbrs *new)
 {
     if (check_repeat(lst, new))
     {
-        write(1, "Error", 5);
+        write(2, "Error", 5);
         exit(1);
     }
     t_nbrs *current;
@@ -106,27 +154,50 @@ int main(int ac, char *av[])
         int i = 1;
         char **res;
         t_nbrs *stacka;
+        t_nbrs *stackb;
+        stackb = NULL;
         t_nbrs *temp;
         int j;
         while (av[i])
         {
             if (av[i][0] == '\0')
-            {
-                write(1, "Error", 5);
-                exit(1);
-            }
+                exit(write(2, "Error", 5));
             res = ft_split(av[i], ' ');
+            if (!res[0])
+                exit(write(2, "Error", 5));
             j = 0;
             while (res[j])
             {
-                temp = ft_addnew_nbr(ft_atoi(res[j]));
+                temp = ft_addnew_nbr(parsing(res[j]));
                 ft_lstadd_end(&stacka, temp);
                 j++;
             }
             i++;
         }
+        if (check_sorted(stacka))
+            exit(write(2, "list is sorted\n", strlen("list is sorted\n")));
+
         sort_list(stacka);
+        if (ft_lstsize(stacka) == 2)
+            ft_sort_two(stacka);
         show_linked(stacka);
+        if (ft_lstsize(stacka) == 3)
+            ft_sort_three(&stacka);
+        // if (ft_lstsize(stacka) == 4)
+        // {
+        //     pb(&stacka, &stackb);
+        //     // t_nbrs *temp;
+        //     // temp = stacka;
+        //     // while (temp)
+        //     // {
+        //     //     if (temp->number == 0)
+        //     //         pb(&temp, &stackb);
+        //     //     temp = temp->next;
+        //     // }
+        // }
+        // sa(&stacka);
+        show_linked(stacka);
+        // show_linked(stackb);
     }
     return 0;
 }

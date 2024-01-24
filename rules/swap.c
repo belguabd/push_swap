@@ -6,48 +6,69 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 02:46:18 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/22 04:20:31 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:57:05 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rules.h"
+#include "../push_swap.h"
 
 /*swap stacka*/
-void sa(t_nbrs *head)
+void sa(t_nbrs **stacka)
 {
     int nbr;
+    int index;
     t_nbrs *temp;
-    temp = head->next;
-    nbr = head->number;
-    head->number = temp->number;
+
+    nbr = (*stacka)->number;
+    index = (*stacka)->index;
+    temp = (*stacka)->next;
+    (*stacka)->number = temp->number;
+    (*stacka)->index = temp->index;
     temp->number = nbr;
+    temp->index = index;
+    write(1, "sa\n", 3);
 }
 
 /*swap stackb*/
-void sb(t_nbrs *head)
+void sb(t_nbrs **stackb)
 {
     int nbr;
+    int index;
     t_nbrs *temp;
-    temp = head->next;
-    nbr = head->number;
-    head->number = temp->number;
+
+    nbr = (*stackb)->number;
+    index = (*stackb)->index;
+    temp = (*stackb)->next;
+    (*stackb)->number = temp->number;
+    (*stackb)->index = temp->index;
     temp->number = nbr;
+    temp->index = index;
+    write(1, "sb\n", 3);
 }
 
 /*swap a and swap b*/
-void ss(t_nbrs *stacka, t_nbrs *stackb)
+void ss(t_nbrs **stacka, t_nbrs **stackb)
 {
     /*satcka*/
     int nbr;
+    int index;
     t_nbrs *temp;
-    temp = stacka->next;
-    nbr = stacka->number;
-    stacka->number = temp->number;
+
+    nbr = (*stacka)->number;
+    index = (*stacka)->index;
+    temp = (*stacka)->next;
+    (*stacka)->number = temp->number;
+    (*stacka)->index = temp->index;
     temp->number = nbr;
+    temp->index = index;
 
     /*satckb*/
-    temp = stackb->next;
-    nbr = stackb->number;
-    stackb->number = temp->number;
+    nbr = (*stackb)->number;
+    index = (*stackb)->index;
+    temp = (*stackb)->next;
+    (*stackb)->number = temp->number;
+    (*stackb)->index = temp->index;
     temp->number = nbr;
+    temp->index = index;
+    write(1, "ss\n", 3);
 }

@@ -6,68 +6,72 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:12:27 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/22 14:04:43 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:47:54 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rules.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
 /*rotate stacka*/
-
-void ra(t_nbrs *stacka)
+void ra(t_nbrs **stacka)
 {
-    int temp = stacka->number;
+    if (*stacka == NULL || (*stacka)->next == NULL)
+        return;
 
-    while (stacka->next)
-    {
-        stacka->number = stacka->next->number;
-        stacka = stacka->next;
-    }
-    stacka->number = temp;
+    t_nbrs *temp = *stacka;
+    *stacka = (*stacka)->next;
+
+    t_nbrs *last = *stacka;
+    while (last->next != NULL)
+        last = last->next;
+    last->next = temp;
+    temp->next = NULL;
+    write(1, "ra\n", 3);
 }
 
 /*rotaet stackb*/
-void rb(t_nbrs *stackb)
+void rb(t_nbrs **stackb)
 {
-    int temp = stackb->number;
+    if (*stackb == NULL || (*stackb)->next == NULL)
+        return;
 
-    while (stackb->next)
-    {
-        stackb->number = stackb->next->number;
-        stackb = stackb->next;
-    }
-    stackb->number = temp;
+    t_nbrs *temp = *stackb;
+    *stackb = (*stackb)->next;
+
+    t_nbrs *last = *stackb;
+    while (last->next != NULL)
+        last = last->next;
+    last->next = temp;
+    temp->next = NULL;
 }
 
 /*rotate stacka and stackb*/
 
-void rr(t_nbrs *stacka, t_nbrs *stackb)
+void rr(t_nbrs **stacka, t_nbrs **stackb)
 {
     /*stacka*/
-    int temp = stacka->number;
 
-    while (stacka->next)
-    {
-        stacka->number = stacka->next->number;
-        stacka = stacka->next;
-    }
-    stacka->number = temp;
+    t_nbrs *temp = *stacka;
+    *stacka = (*stacka)->next;
+
+    t_nbrs *last = *stacka;
+    while (last->next != NULL)
+        last = last->next;
+    last->next = temp;
+    temp->next = NULL;
 
     /*stackb*/
 
-    temp = stackb->number;
+    temp = *stackb;
+    *stackb = (*stackb)->next;
 
-    while (stackb->next)
-    {
-        stackb->number = stackb->next->number;
-        stackb = stackb->next;
-    }
-    stackb->number = temp;
+    last = *stackb;
+    while (last->next != NULL)
+        last = last->next;
+    last->next = temp;
+    temp->next = NULL;
 }
-
 /*reverse rotate stacka */
-
 void rra(t_nbrs **stacka)
 {
     t_nbrs *last = *stacka;
@@ -77,14 +81,23 @@ void rra(t_nbrs **stacka)
         second_node = last;
         last = last->next;
     }
-    second_node->next = NULL;
     last->next = *stacka;
+    second_node->next = NULL;
     *stacka = last;
+
+    // t_nbrs *show = *stacka;
+    // while (show)
+    // {
+    //     printf("%d\n", show->number);
+    //     show = show->next;
+    // }
+    write(1, "rra\n", 4);
 }
 
 /*reverse rotate stackb*/
 void rrb(t_nbrs **stackb)
 {
+
     t_nbrs *last = *stackb;
     t_nbrs *second_node = NULL;
     while (last->next)
@@ -92,8 +105,8 @@ void rrb(t_nbrs **stackb)
         second_node = last;
         last = last->next;
     }
-    second_node->next = NULL;
     last->next = *stackb;
+    second_node->next = NULL;
     *stackb = last;
 }
 
@@ -108,12 +121,12 @@ void rrr(t_nbrs **stacka, t_nbrs **stackb)
         second_node = last;
         last = last->next;
     }
-    second_node->next = NULL;
     last->next = *stacka;
+    second_node->next = NULL;
     *stacka = last;
 
     /*reverse rotate stackb*/
-    
+
     last = *stackb;
     second_node = NULL;
     while (last->next)
@@ -121,7 +134,7 @@ void rrr(t_nbrs **stacka, t_nbrs **stackb)
         second_node = last;
         last = last->next;
     }
-    second_node->next = NULL;
     last->next = *stackb;
+    second_node->next = NULL;
     *stackb = last;
 }

@@ -19,12 +19,12 @@ int ft_atoi(const char *str)
 	if (!str[i])
 	{
 
-		write(1, "Error", 5);
+		write(2, "Error", 5);
 		exit(1);
 	}
 	if (str[i] && (str[i] < '0' || str[i] > '9'))
 	{
-		write(1, "Error", 5);
+		write(2, "Error", 5);
 		exit(1);
 	}
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
@@ -40,7 +40,7 @@ int ft_atoi(const char *str)
 	}
 	if (str[i] && (str[i] < '0' || str[i] > '9'))
 	{
-		write(1, "Error", 5);
+		write(2, "Error", 5);
 		exit(1);
 	}
 
@@ -200,7 +200,7 @@ int main(int ac, char *av[]) {
         int j;
         while (av[i]) {
             if (av[i][0] == '\0') {
-                write(1, "Error", 5);
+                write(2, "Error", 5);
                 exit(1);
             }
             res = ft_split(av[i], ' '); // Assuming you have a function named ft_split

@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 02:45:21 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/21 02:46:26 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:02:52 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int main()
 {
-    char *p = malloc(0);
-    p[0] = '1';
-    p[1] = '\0';
-    printf("%s", p);
+    // char *p = malloc(0);
+    // p[0] = '1';
+    // p[1] = '\0';
+    // printf("%s", p);
+    long res = 9223372036854775807;
+    printf("%ld\n",LONG_MAX + 1);
     return 0;
 }

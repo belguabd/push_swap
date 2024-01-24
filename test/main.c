@@ -23,7 +23,7 @@
 //             sign *= -1;
 //     if (str[i] && (str[i] < '0' || str[i] > '9'))
 //     {
-//         write(1, "Error", 5);
+//         write(2, "Error", 5);
 //         exit(1);
 //     }
 //     while (str[i] && str[i] >= '0' && str[i] <= '9')
@@ -39,7 +39,7 @@
 //     }
 //     if (str[i] && (str[i] < '0' || str[i] > '9'))
 //     {
-//         write(1, "Error", 5);
+//         write(2, "Error", 5);
 //         exit(1);
 //     }
 
