@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:12:27 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/24 16:47:54 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/25 09:59:00 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void ra(t_nbrs **stacka)
     last->next = temp;
     temp->next = NULL;
     write(1, "ra\n", 3);
+    
 }
 
 /*rotaet stackb*/

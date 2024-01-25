@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/24 14:24:40 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:20:05 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct Numbers
 	int index;
 	struct Numbers *next;
 } t_nbrs;
-
 void sa(t_nbrs **stacka);
 void sb(t_nbrs **stackb);
 void ss(t_nbrs **stacka, t_nbrs **stackb);
@@ -48,4 +47,11 @@ void rrb(t_nbrs **stackb);
 void rrr(t_nbrs **stacka, t_nbrs **stackb);
 void pa(t_nbrs **stacka, t_nbrs **stackb);
 void pb(t_nbrs **stacka, t_nbrs **stackb);
+
+
+
+
+
+
+
 #endif

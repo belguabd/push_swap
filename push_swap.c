@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/24 18:03:46 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:08:51 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,41 @@ bool check_repeat(t_nbrs **lst, t_nbrs *new)
     }
     return (false);
 }
+void process_stack_4(t_nbrs **stacka, t_nbrs **stackb)
+{
+    if (ft_lstsize(*stacka) == 4)
+    {
+        int count = 0;
+        t_nbrs *temp = *stacka;
+
+        while (temp)
+        {
+            if (temp->index != 0)
+                count++;
+            temp = temp->next;
+        }
+
+        if (count == 1)
+        {
+            sa(stacka);
+            pb(stacka, stackb);
+        }
+        else if (count == 2)
+        {
+            ra(stacka);
+            ra(stacka);
+            pb(stacka, stackb);
+        }
+        else if (count == 3)
+        {
+            rra(stacka);
+            pb(stacka, stackb);
+        }
+        else
+            pb(stacka, stackb);
+    }
+}
+
 void ft_lstadd_end(t_nbrs **lst, t_nbrs *new)
 {
     if (check_repeat(lst, new))
@@ -146,6 +181,30 @@ void ft_lstadd_front(t_nbrs **head, t_nbrs *new)
     *head = new;
 }
 
+void process_stack_four(t_nbrs **stacka, t_nbrs **stackb)
+{
+    int count;
+
+    count = 0;
+    if (ft_lstsize(*stacka) == 4)
+    {
+        t_nbrs *temp;
+
+        temp = *stacka;
+        while (temp && temp->index != 0 && ++count)
+            temp = temp->next;
+        if (count == 1)
+            sa(stacka);
+        else if (count == 2)
+        {
+            ra(stacka);
+            ra(stacka);
+        }
+        else if (count == 3)
+            rra(stacka);
+        pb(stacka, stackb);
+    }
+}
 int main(int ac, char *av[])
 {
 
@@ -183,21 +242,18 @@ int main(int ac, char *av[])
         show_linked(stacka);
         if (ft_lstsize(stacka) == 3)
             ft_sort_three(&stacka);
-        // if (ft_lstsize(stacka) == 4)
-        // {
-        //     pb(&stacka, &stackb);
-        //     // t_nbrs *temp;
-        //     // temp = stacka;
-        //     // while (temp)
-        //     // {
-        //     //     if (temp->number == 0)
-        //     //         pb(&temp, &stackb);
-        //     //     temp = temp->next;
-        //     // }
-        // }
+        if (ft_lstsize(stacka) == 4)
+        {
+            process_stack_four(&stacka, &stackb);
+            ft_sort_three(&stacka);
+            pa(&stacka, &stackb);
+        }
         // sa(&stacka);
+        // rra(&stacka);
+        // rra(&stacka);
+        // rra(&stacka);
         show_linked(stacka);
-        // show_linked(stackb);
+        show_linked(stackb);
     }
     return 0;
 }
