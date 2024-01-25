@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 11:08:51 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:55:32 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,7 @@ bool check_sorted(t_nbrs *head)
     return (true);
 }
 
-int ft_lstsize(t_nbrs *head)
-{
-    int count;
-    count = 0;
-    while (head)
-    {
-        count++;
-        head = head->next;
-    }
-    return (count);
-}
+
 void sort_list(t_nbrs *head)
 {
     t_nbrs *temp;
@@ -95,116 +85,67 @@ void sort_list(t_nbrs *head)
     }
 }
 
-t_nbrs *ft_addnew_nbr(int number)
+int find_min_index(t_nbrs *stacka)
 {
-    t_nbrs *p;
-    p = (t_nbrs *)malloc(sizeof(t_nbrs));
-    if (!p)
-        return (NULL);
-    p->number = number;
-    p->index = 0;
-    p->next = NULL;
-    return (p);
-}
-bool check_repeat(t_nbrs **lst, t_nbrs *new)
-{
-    t_nbrs *current;
-
-    current = *lst;
-    while (current)
+    int index;
+    index = stacka->index;
+    stacka = stacka->next;
+    while (stacka)
     {
-        if (current->number == new->number)
-            return (true);
-        current = current->next;
+        if (stacka->index < index)
+            index = stacka->index;
+        stacka = stacka->next;
     }
-    return (false);
+    return (index);
 }
-void process_stack_4(t_nbrs **stacka, t_nbrs **stackb)
-{
-    if (ft_lstsize(*stacka) == 4)
-    {
-        int count = 0;
-        t_nbrs *temp = *stacka;
-
-        while (temp)
-        {
-            if (temp->index != 0)
-                count++;
-            temp = temp->next;
-        }
-
-        if (count == 1)
-        {
-            sa(stacka);
-            pb(stacka, stackb);
-        }
-        else if (count == 2)
-        {
-            ra(stacka);
-            ra(stacka);
-            pb(stacka, stackb);
-        }
-        else if (count == 3)
-        {
-            rra(stacka);
-            pb(stacka, stackb);
-        }
-        else
-            pb(stacka, stackb);
-    }
-}
-
-void ft_lstadd_end(t_nbrs **lst, t_nbrs *new)
-{
-    if (check_repeat(lst, new))
-    {
-        write(2, "Error", 5);
-        exit(1);
-    }
-    t_nbrs *current;
-
-    if (!*lst)
-    {
-        *lst = new;
-        return;
-    }
-    current = *lst;
-    while (current->next)
-        current = current->next;
-    current->next = new;
-}
-void ft_lstadd_front(t_nbrs **head, t_nbrs *new)
-{
-    if (!head || !new)
-        return;
-    new->next = *head;
-    *head = new;
-}
-
 void process_stack_four(t_nbrs **stacka, t_nbrs **stackb)
 {
     int count;
+    t_nbrs *temp;
+    int index;
+    count = 0;
+    temp = *stacka;
+    index = find_min_index(*stacka);
+    while (temp && temp->index != index && ++count)
+        temp = temp->next;
+    if (count == 1)
+        sa(stacka);
+    else if (count == 2)
+    {
+        ra(stacka);
+        ra(stacka);
+    }
+    else if (count == 3)
+        rra(stacka);
+    pb(stacka, stackb);
+}
+void process_stack_five(t_nbrs **stacka, t_nbrs **stackb)
+{
+    int count;
+    t_nbrs *temp;
 
     count = 0;
-    if (ft_lstsize(*stacka) == 4)
+    temp = *stacka;
+    while (temp && temp->index != 0 && ++count)
+        temp = temp->next;
+    if (count == 1)
+        sa(stacka);
+    else if (count == 2)
     {
-        t_nbrs *temp;
-
-        temp = *stacka;
-        while (temp && temp->index != 0 && ++count)
-            temp = temp->next;
-        if (count == 1)
-            sa(stacka);
-        else if (count == 2)
-        {
-            ra(stacka);
-            ra(stacka);
-        }
-        else if (count == 3)
-            rra(stacka);
-        pb(stacka, stackb);
+        ra(stacka);
+        ra(stacka);
     }
+    else if (count == 3)
+    {
+        rra(stacka);
+        rra(stacka);
+    }
+    else if (count == 4)
+        rra(stacka);
+
+    pb(stacka, stackb);
 }
+
 int main(int ac, char *av[])
 {
 
@@ -248,10 +189,16 @@ int main(int ac, char *av[])
             ft_sort_three(&stacka);
             pa(&stacka, &stackb);
         }
-        // sa(&stacka);
-        // rra(&stacka);
-        // rra(&stacka);
-        // rra(&stacka);
+        if (ft_lstsize(stacka) == 5)
+        {
+            process_stack_five(&stacka, &stackb);
+            process_stack_four(&stacka,&stackb);
+            ft_sort_three(&stacka);
+            pa(&stacka, &stackb);
+            pa(&stacka, &stackb);
+            
+        }
+      
         show_linked(stacka);
         show_linked(stackb);
     }

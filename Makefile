@@ -1,11 +1,19 @@
 CC = cc
 PUSH_SWAP = push_swap
 CFLAGS = -Wall -Wextra -Werror -g
+
 RULES = rules
+UTILS = utils
+PARSING=parsing
 
 RM = rm -rf
 
-SRC = push_swap.c parsing.c ft_split.c $(RULES)/push.c $(RULES)/swap.c $(RULES)/rotate.c
+SRC=push_swap.c\
+	$(PARSING)/parsing.c \
+	$(UTILS)/ft_split.c $(UTILS)/ft_lstsize.c  $(UTILS)/ft_lstadd_end.c $(UTILS)/ft_addnew_nbr.c\
+	$(RULES)/push.c $(RULES)/swap.c $(RULES)/rotate.c
+
+
 OBJ = $(SRC:.c=.o)
 # ANSI escape codes for colors
 GREEN = \033[32m

@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 02:46:18 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 10:18:49 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:57:29 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,5 @@ void ss(t_nbrs **stacka, t_nbrs **stackb)
     (*stackb)->index = temp->index;
     temp->number = nbr;
     temp->index = index;
-    
-    
-    
     write(1, "ss\n", 3);
 }

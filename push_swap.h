@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 11:20:05 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:52:11 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,9 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
-int parsing(const char *str);
-char **ft_split(char const *str, char c);
 
-typedef struct s_vars
-{
-	char **res;
-	int i;
-	int j;
-	int flage;
-	int start;
-} t_vars;
+/*part parsing*/
+int parsing(const char *str);
 
 typedef struct Numbers
 {
@@ -36,6 +28,7 @@ typedef struct Numbers
 	int index;
 	struct Numbers *next;
 } t_nbrs;
+/* Instructions */
 void sa(t_nbrs **stacka);
 void sb(t_nbrs **stackb);
 void ss(t_nbrs **stacka, t_nbrs **stackb);
@@ -48,10 +41,20 @@ void rrr(t_nbrs **stacka, t_nbrs **stackb);
 void pa(t_nbrs **stacka, t_nbrs **stackb);
 void pb(t_nbrs **stacka, t_nbrs **stackb);
 
+/*utils*/
+int ft_lstsize(t_nbrs *head);
 
+char **ft_split(char const *str, char c);
+/*struct for ft_split*/
+typedef struct s_vars
+{
+	char **res;
+	int i;
+	int j;
+	int flage;
+	int start;
+} t_vars;
 
-
-
-
-
+void ft_lstadd_end(t_nbrs **lst, t_nbrs *new);
+t_nbrs *ft_addnew_nbr(int number);
 #endif
