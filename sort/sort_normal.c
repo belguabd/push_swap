@@ -6,13 +6,11 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 08:24:28 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/26 08:30:49 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:31:12 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-
 
 int find_min_index(t_nbrs *stacka)
 {
@@ -36,6 +34,8 @@ void ft_sort_three(t_nbrs **stacka)
     int a = (*stacka)->number;
     int b = (*stacka)->next->number;
     int c = (*stacka)->next->next->number;
+    if (a < b && b < c)
+        return;
     if (a > b && b > c && a > c)
     {
         sa(stacka);

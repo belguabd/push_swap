@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:12:27 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 09:59:00 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:41:33 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void rb(t_nbrs **stackb)
         last = last->next;
     last->next = temp;
     temp->next = NULL;
+    write(1, "rb\n", 4);
 }
 
 /*rotate stacka and stackb*/
@@ -71,6 +72,7 @@ void rr(t_nbrs **stacka, t_nbrs **stackb)
         last = last->next;
     last->next = temp;
     temp->next = NULL;
+    write(1, "rr\n", 4);
 }
 /*reverse rotate stacka */
 void rra(t_nbrs **stacka)
@@ -85,13 +87,6 @@ void rra(t_nbrs **stacka)
     last->next = *stacka;
     second_node->next = NULL;
     *stacka = last;
-
-    // t_nbrs *show = *stacka;
-    // while (show)
-    // {
-    //     printf("%d\n", show->number);
-    //     show = show->next;
-    // }
     write(1, "rra\n", 4);
 }
 

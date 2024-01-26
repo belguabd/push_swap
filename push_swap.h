@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/26 08:29:16 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:10:15 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ t_nbrs *ft_addnew_nbr(int number);
 /*Implementation of the sorting algorithm for normal*/
 
 void sort_normal(t_nbrs **stacka, t_nbrs **stackb);
+void show_linked(t_nbrs *head);
 #endif

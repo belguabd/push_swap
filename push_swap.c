@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/26 08:26:59 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:22:22 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void show_linked(t_nbrs *head)
 
     printf("+--------+-------+\n");
 }
-
 
 bool check_sorted(t_nbrs *head)
 {
@@ -92,9 +91,8 @@ int main(int ac, char *av[])
 
         sort_list(stacka);
         sort_normal(&stacka, &stackb);
-
-        show_linked(stacka);
-        show_linked(stackb);
+        // show_linked(stacka);
+        // show_linked(stackb);
     }
     return 0;
 }

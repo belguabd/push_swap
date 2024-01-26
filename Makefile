@@ -18,6 +18,7 @@ SRC=push_swap.c\
 
 
 OBJ = $(SRC:.c=.o)
+
 # ANSI escape codes for colors
 GREEN = \033[32m
 RESET = \033[0m
@@ -43,9 +44,11 @@ $(PUSH_SWAP): $(OBJ)
 	@echo " "
 
 clean:
-	$(RM) $(OBJ)
+	@$(PRINT_LOADING)
+	@$(RM) $(OBJ)
+	@echo "$(GREEN)Clean complete.$(RESET)"
 
 fclean: clean
-	$(RM) $(PUSH_SWAP)
-
-re: fclean all
+	@$(PRINT_LOADING)
+	@$(RM) $(PUSH_SWAP)
+	@echo "$(GREEN)Full Clean complete.$(RESET)"
