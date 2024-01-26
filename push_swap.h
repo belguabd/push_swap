@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 16:52:11 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:29:16 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,8 @@ typedef struct s_vars
 
 void ft_lstadd_end(t_nbrs **lst, t_nbrs *new);
 t_nbrs *ft_addnew_nbr(int number);
+
+/*Implementation of the sorting algorithm for normal*/
+
+void sort_normal(t_nbrs **stacka, t_nbrs **stackb);
 #endif
