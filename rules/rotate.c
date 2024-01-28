@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:12:27 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/26 08:41:33 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/27 17:51:07 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,15 @@ void ra(t_nbrs **stacka)
 /*rotaet stackb*/
 void rb(t_nbrs **stackb)
 {
-    if (*stackb == NULL || (*stackb)->next == NULL)
-        return;
+    // if (*stackb == NULL || (*stackb)->next == NULL)
+    //     return;
 
+    if (!stackb)
+        return ;
+    if (!*stackb)
+        return ;
+    if ((*stackb)->next == NULL)
+        return ;
     t_nbrs *temp = *stackb;
     *stackb = (*stackb)->next;
 
@@ -44,7 +50,7 @@ void rb(t_nbrs **stackb)
         last = last->next;
     last->next = temp;
     temp->next = NULL;
-    write(1, "rb\n", 4);
+    write(1, "rb\n", 3);
 }
 
 /*rotate stacka and stackb*/
@@ -72,7 +78,7 @@ void rr(t_nbrs **stacka, t_nbrs **stackb)
         last = last->next;
     last->next = temp;
     temp->next = NULL;
-    write(1, "rr\n", 4);
+    write(1, "rr\n", 3);
 }
 /*reverse rotate stacka */
 void rra(t_nbrs **stacka)
@@ -94,6 +100,13 @@ void rra(t_nbrs **stacka)
 void rrb(t_nbrs **stackb)
 {
 
+    if (!stackb)
+        return ;
+    if (!*stackb)
+        return ;
+    if ((*stackb)->next == NULL)
+        return ;
+    
     t_nbrs *last = *stackb;
     t_nbrs *second_node = NULL;
     while (last->next)
@@ -104,6 +117,7 @@ void rrb(t_nbrs **stackb)
     last->next = *stackb;
     second_node->next = NULL;
     *stackb = last;
+    write(1, "rrb\n", 4);
 }
 
 /*reverse rotate stacka and stackb*/
@@ -133,4 +147,5 @@ void rrr(t_nbrs **stacka, t_nbrs **stackb)
     last->next = *stackb;
     second_node->next = NULL;
     *stackb = last;
+    write(1, "rrr\n", 4);
 }

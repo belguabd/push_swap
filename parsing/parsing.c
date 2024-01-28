@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:15:38 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 16:39:13 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:57:21 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int parsing(const char *str)
 		if (str[i++] == '-')
 			sign *= -1;
 	if (!str[i])
-		exit(write(2, "Error", 5));
+		exit(write(2,"Error", 5));
 	if (str[i] && (str[i] < '0' || str[i] > '9'))
 		exit(write(2, "Error", 5));
 	while (str[i] && str[i] >= '0' && str[i] <= '9')

@@ -6,27 +6,44 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/26 10:22:22 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:37:26 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void show_linked(t_nbrs *head)
+void show_linked_stacka(t_nbrs *head)
 {
-    printf("+--------+-------+\n");
-    printf("| Number | Index |\n");
-    printf("+--------+-------+\n");
+    printf("+--------+-------+---------+\n");
+    printf("|         Stack A          |\n");
+    printf("+--------+-------+---------+\n");
+    printf("| Number | Index | Position|\n");
+    printf("+--------+-------+---------+\n");
 
     while (head)
     {
-        printf("| %-6d | %-5d |\n", head->number, head->index);
+        printf("| %-6d | %-5d | %-7d |\n", head->number, head->index, head->position);
         head = head->next;
     }
 
-    printf("+--------+-------+\n");
+    printf("+--------+-------+---------+\n");
 }
+void show_linked_stackb(t_nbrs *head)
+{
+    printf("+--------+-------+---------+\n");
+    printf("|         Stack B          |\n");
+    printf("+--------+-------+---------+\n");
+    printf("| Number | Index | Position|\n");
+    printf("+--------+-------+---------+\n");
 
+    while (head)
+    {
+        printf("| %-6d | %-5d | %-7d |\n", head->number, head->index, head->position);
+        head = head->next;
+    }
+
+    printf("+--------+-------+---------+\n");
+}
 bool check_sorted(t_nbrs *head)
 {
 
@@ -38,7 +55,6 @@ bool check_sorted(t_nbrs *head)
     }
     return (true);
 }
-
 void sort_list(t_nbrs *head)
 {
     t_nbrs *temp;
@@ -65,10 +81,12 @@ int main(int ac, char *av[])
     {
         int i = 1;
         char **res;
+
         t_nbrs *stacka;
         t_nbrs *stackb;
         stackb = NULL;
         t_nbrs *temp;
+
         int j;
         while (av[i])
         {
@@ -91,8 +109,10 @@ int main(int ac, char *av[])
 
         sort_list(stacka);
         sort_normal(&stacka, &stackb);
-        // show_linked(stacka);
-        // show_linked(stackb);
+        if (ft_lstsize(stacka) > 5)
+        {
+            sort_big(&stacka, &stackb);
+        }
     }
     return 0;
 }
