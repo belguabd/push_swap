@@ -6,44 +6,13 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/28 14:37:26 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:56:54 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void show_linked_stacka(t_nbrs *head)
-{
-    printf("+--------+-------+---------+\n");
-    printf("|         Stack A          |\n");
-    printf("+--------+-------+---------+\n");
-    printf("| Number | Index | Position|\n");
-    printf("+--------+-------+---------+\n");
 
-    while (head)
-    {
-        printf("| %-6d | %-5d | %-7d |\n", head->number, head->index, head->position);
-        head = head->next;
-    }
-
-    printf("+--------+-------+---------+\n");
-}
-void show_linked_stackb(t_nbrs *head)
-{
-    printf("+--------+-------+---------+\n");
-    printf("|         Stack B          |\n");
-    printf("+--------+-------+---------+\n");
-    printf("| Number | Index | Position|\n");
-    printf("+--------+-------+---------+\n");
-
-    while (head)
-    {
-        printf("| %-6d | %-5d | %-7d |\n", head->number, head->index, head->position);
-        head = head->next;
-    }
-
-    printf("+--------+-------+---------+\n");
-}
 bool check_sorted(t_nbrs *head)
 {
 
@@ -109,10 +78,13 @@ int main(int ac, char *av[])
 
         sort_list(stacka);
         sort_normal(&stacka, &stackb);
+        // show_linked_stacka(stacka);
         if (ft_lstsize(stacka) > 5)
         {
             sort_big(&stacka, &stackb);
         }
+        // show_linked_stacka(stacka);
+        // show_linked_stackb(stackb);
     }
     return 0;
 }

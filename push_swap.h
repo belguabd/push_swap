@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/28 14:37:57 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:16:40 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,8 @@ t_nbrs *ft_addnew_nbr(int number);
 void sort_normal(t_nbrs **stacka, t_nbrs **stackb);
 void sort_big(t_nbrs **stacka, t_nbrs **stackb);
 void show_linked(t_nbrs *head);
+
+/*display all nodes*/
+void show_linked_stackb(t_nbrs *head);
+void show_linked_stacka(t_nbrs *head);
 #endif

@@ -6,6 +6,7 @@ RULES = rules
 UTILS = utils
 PARSING=parsing
 SORT=sort
+DISPLAY=display
 
 RM = rm -rf
 
@@ -13,7 +14,8 @@ SRC=push_swap.c\
 	$(PARSING)/parsing.c \
 	$(UTILS)/ft_split.c $(UTILS)/ft_lstsize.c  $(UTILS)/ft_lstadd_end.c $(UTILS)/ft_addnew_nbr.c\
 	$(RULES)/push.c $(RULES)/swap.c $(RULES)/rotate.c \
-	$(SORT)/sort_normal.c $(SORT)/sort_big.c
+	$(SORT)/sort_normal.c $(SORT)/sort_big.c \
+	$(DISPLAY)/show.c
 
 
 
