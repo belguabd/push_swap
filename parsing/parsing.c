@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:15:38 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/26 15:57:21 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:44:31 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int parsing(const char *str)
 	sign = 1;
 	res = 0;
 	while (str[i] >= 9 && str[i] <= 13)
-		exit(write(2, "Error", 5));
+		exit(write(2, "Error\n", 6));
 	while (str[i] == 32)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -31,16 +31,16 @@ int parsing(const char *str)
 	if (!str[i])
 		exit(write(2,"Error", 5));
 	if (str[i] && (str[i] < '0' || str[i] > '9'))
-		exit(write(2, "Error", 5));
+		exit(write(2, "Error\n", 6));
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		res = (str[i] - 48) + (res * 10);
 		i++;
 	}
 	if (str[i] && (str[i] < '0' || str[i] > '9'))
-		exit(write(2, "Error", 5));
+		exit(write(2, "Error\n", 6));
 	res = res * sign;
 	if (res > INT_MAX || res < INT_MIN)
-		exit(write(2, "Error", 5));
+		exit(write(2, "Error\n", 6));
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:44:47 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 16:50:12 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:48:44 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 bool check_repeat(t_nbrs **lst, t_nbrs *new)
 {
     t_nbrs *current;
-
     current = *lst;
     while (current)
     {
@@ -29,10 +28,7 @@ bool check_repeat(t_nbrs **lst, t_nbrs *new)
 void ft_lstadd_end(t_nbrs **lst, t_nbrs *new)
 {
     if (check_repeat(lst, new))
-    {
-        write(2, "Error", 5);
-        exit(1);
-    }
+        exit(write(2, "Error\n", 6));
     t_nbrs *current;
 
     if (!*lst)

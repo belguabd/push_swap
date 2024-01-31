@@ -8,3 +8,5 @@ valgrind
 todo.txt
 push_swap_test.sh
 test.txt
+traces.txt
+./Push-Swap-Tester/

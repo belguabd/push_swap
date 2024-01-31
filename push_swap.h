@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/29 11:16:40 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:18:29 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,16 @@ t_nbrs *ft_addnew_nbr(int number);
 /*Implementation of the sorting algorithm for normal*/
 
 void sort_normal(t_nbrs **stacka, t_nbrs **stackb);
+/*function of sort big */
 void sort_big(t_nbrs **stacka, t_nbrs **stackb);
-void show_linked(t_nbrs *head);
+/* utils of sort big */
+
+int ft_best_move(int size, int move);
+void get_pos(t_nbrs **stackb, int nbr, int *big_pos, int *small_pos);
+void push_slnbr_ska(t_nbrs **stackb, t_nbrs **stacka, int *optimal_move_count_2, int *small_pos);
+void push_bignbr_ska(t_nbrs **stacka, t_nbrs **stackb, int *optimal_move_count_1, int *big_pos);
+void push_bignbr_to_ska(t_nbrs **stacka, t_nbrs **stackb, int *big_pos, int *optimal_move_count_1);
+// void show_linked(t_nbrs *head);
 
 /*display all nodes*/
 void show_linked_stackb(t_nbrs *head);

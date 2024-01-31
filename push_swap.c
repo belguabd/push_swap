@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/30 16:25:37 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:44:31 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int main(int ac, char *av[])
         
         t_nbrs *stacka;
         t_nbrs *stackb;
+        stacka = NULL;
         stackb = NULL;
         t_nbrs *temp;
 
@@ -64,10 +65,10 @@ int main(int ac, char *av[])
         while (av[i])
         {
             if (av[i][0] == '\0')
-                exit(write(2, "Error", 5));
+                exit(write(2, "Error\n", 6));
             res = ft_split(av[i], ' ');
             if (!res[0])
-                exit(write(2, "Error", 5));
+                exit(write(2, "Error\n", 6));
             j = 0;
             while (res[j])
             {
