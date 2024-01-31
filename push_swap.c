@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:19:55 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/29 12:56:54 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:25:37 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,18 @@ void sort_list(t_nbrs *head)
         temp = temp->next;
     }
 }
+// void f()
+// {
+//     system("leaks push_swap");
+// }
 int main(int ac, char *av[])
 {
-
-    if (ac != 1)
+//    atexit(f);
+    if (ac !=  1)
     {
         int i = 1;
         char **res;
-
+        
         t_nbrs *stacka;
         t_nbrs *stackb;
         stackb = NULL;
@@ -85,6 +89,9 @@ int main(int ac, char *av[])
         }
         // show_linked_stacka(stacka);
         // show_linked_stackb(stackb);
+         
     }
     return 0;
+
+
 }

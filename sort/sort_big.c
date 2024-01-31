@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 14:36:31 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/29 13:06:08 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:59:22 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,29 +155,26 @@ void sort_big(t_nbrs **stacka, t_nbrs **stackb)
     int chunk = size_b / 5;
     if (size_b > 100)
         chunk = size_b / 9;
-        
     int change_chunk = chunk;
-
     while (*stacka)
     {
         if ((*stacka)->index < change_chunk)
         {
             if ((*stacka)->index >= (change_chunk - (chunk / 2)))
+                pb(stacka, stackb);
+            else
             {
                 pb(stacka, stackb);
-                if((*stacka)->index >= change_chunk)
+                if ((*stacka) && (*stacka)->index >= change_chunk)
                     rr(stacka, stackb);
                 else
-                    rb(stackb);
+                   rb(stackb);
             }
-            else
-                pb(stacka, stackb);
         }
         else
             ra(stacka);
         if (ft_lstsize(*stackb) == change_chunk)
             change_chunk += chunk;
     }
-    // show_linked_stackb(*stackb);
     ft_puch_stacka(stacka, stackb);
 }

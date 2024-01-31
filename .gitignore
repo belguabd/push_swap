@@ -5,4 +5,6 @@ vis.py
 imgui.ini
 checker_Mac
 valgrind
-todo
+todo.txt
+push_swap_test.sh
+test.txt

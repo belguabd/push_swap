@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:12:27 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/27 17:51:07 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:23:24 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*rotate stacka*/
 void ra(t_nbrs **stacka)
 {
-    if (*stacka == NULL || (*stacka)->next == NULL)
+    if (!stacka || *stacka == NULL || (*stacka)->next == NULL)
         return;
 
     t_nbrs *temp = *stacka;
@@ -27,7 +27,6 @@ void ra(t_nbrs **stacka)
     last->next = temp;
     temp->next = NULL;
     write(1, "ra\n", 3);
-    
 }
 
 /*rotaet stackb*/
@@ -37,11 +36,11 @@ void rb(t_nbrs **stackb)
     //     return;
 
     if (!stackb)
-        return ;
+        return;
     if (!*stackb)
-        return ;
+        return;
     if ((*stackb)->next == NULL)
-        return ;
+        return;
     t_nbrs *temp = *stackb;
     *stackb = (*stackb)->next;
 
@@ -59,25 +58,33 @@ void rr(t_nbrs **stacka, t_nbrs **stackb)
 {
     /*stacka*/
 
-    t_nbrs *temp = *stacka;
-    *stacka = (*stacka)->next;
+    // if (!stacka || !*stacka || !stackb || !*stackb || !(*stackb)->next)
+    //     return;
+    t_nbrs *temp;
+    t_nbrs *last;
+    if (stacka && *stacka && (*stacka)->next)
+    {
+        temp = *stacka;
+        *stacka = (*stacka)->next;
 
-    t_nbrs *last = *stacka;
-    while (last->next != NULL)
-        last = last->next;
-    last->next = temp;
-    temp->next = NULL;
+        last = *stacka;
+        while (last->next != NULL)
+            last = last->next;
+        last->next = temp;
+        temp->next = NULL;
+    }
 
-    /*stackb*/
+    if (stackb && *stackb && (*stackb)->next)
+    {
+        temp = *stackb;
+        *stackb = (*stackb)->next;
 
-    temp = *stackb;
-    *stackb = (*stackb)->next;
-
-    last = *stackb;
-    while (last->next != NULL)
-        last = last->next;
-    last->next = temp;
-    temp->next = NULL;
+        last = *stackb;
+        while (last->next != NULL)
+            last = last->next;
+        last->next = temp;
+        temp->next = NULL;
+    }
     write(1, "rr\n", 3);
 }
 /*reverse rotate stacka */
@@ -101,12 +108,12 @@ void rrb(t_nbrs **stackb)
 {
 
     if (!stackb)
-        return ;
+        return;
     if (!*stackb)
-        return ;
+        return;
     if ((*stackb)->next == NULL)
-        return ;
-    
+        return;
+
     t_nbrs *last = *stackb;
     t_nbrs *second_node = NULL;
     while (last->next)
