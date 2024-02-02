@@ -11,7 +11,7 @@ UTILS = utils
 PARSING=parsing
 SORT=sort
 DISPLAY=display
-GET_NEXT_LINE=get_next_line
+GET_NEXT_LINE=get_next_line_bonus
 BONUS=bonus
 
 RM = rm -rf
