@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 16:33:32 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/02 12:06:00 by belguabd         ###   ########.fr       */
+/*   Created: 2024/02/02 10:29:34 by belguabd          #+#    #+#             */
+/*   Updated: 2024/02/02 12:07:53 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_lstsize(t_nbrs *head)
+size_t	ft_strlen(const char *s)
 {
-	int	count;
+	size_t	i;
 
-	count = 0;
-	while (head)
-	{
-		count++;
-		head = head->next;
-	}
-	return (count);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

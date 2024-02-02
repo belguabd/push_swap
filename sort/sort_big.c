@@ -6,25 +6,23 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 14:36:31 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/31 18:32:29 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:53:21 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_puch_stacka(t_nbrs **stacka, t_nbrs **stackb)
+void	ft_puch_stacka(t_nbrs **stacka, t_nbrs **stackb)
 {
+	int	big_pos;
+	int	small_pos;
+	int	optimal_move_count_1;
+	int	optimal_move_count_2;
 
-	int big_pos;
-	int small_pos;
-	int optimal_move_count_1;
-	int optimal_move_count_2;
-	
 	while (*stackb)
 	{
 		optimal_move_count_1 = 0;
 		optimal_move_count_2 = 0;
-
 		get_pos(stackb, 1, &big_pos, &small_pos);
 		optimal_move_count_1 = ft_best_move(ft_lstsize(*stackb), big_pos);
 		optimal_move_count_2 = ft_best_move(ft_lstsize(*stackb), small_pos);
@@ -39,8 +37,8 @@ void ft_puch_stacka(t_nbrs **stacka, t_nbrs **stackb)
 	}
 }
 
-bool ft_push_stackb(t_nbrs **stacka, t_nbrs **stackb,
-					int *change_chunk, int *chunk)
+bool	ft_push_stackb(t_nbrs **stacka, t_nbrs **stackb,
+	int *change_chunk, int *chunk)
 {
 	if ((*stacka)->index < (*change_chunk))
 	{
@@ -58,11 +56,12 @@ bool ft_push_stackb(t_nbrs **stacka, t_nbrs **stackb,
 	}
 	return (false);
 }
-void sort_big(t_nbrs **stacka, t_nbrs **stackb)
+
+void	sort_big(t_nbrs **stacka, t_nbrs **stackb)
 {
-	int size_b;
-	int chunk;
-	int change_chunk;
+	int	size_b;
+	int	chunk;
+	int	change_chunk;
 
 	size_b = ft_lstsize(*stacka);
 	chunk = size_b / 5;

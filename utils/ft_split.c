@@ -6,24 +6,15 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 05:11:22 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/25 16:30:27 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:07:05 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_strlen(const char *str)
+int	ft_free(char **res, char *str, int index)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-int ft_free(char **res, char *str, int index)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -38,10 +29,11 @@ int ft_free(char **res, char *str, int index)
 	}
 	return (1);
 }
-static int count_words(const char *str, char c)
+
+static int	count_words(const char *str, char c)
 {
-	int i;
-	int to_find;
+	int	i;
+	int	to_find;
 
 	i = 0;
 	to_find = 0;
@@ -59,10 +51,10 @@ static int count_words(const char *str, char c)
 	return (i);
 }
 
-static char *word_dup(const char *str, int start, int end, int *flag)
+static char	*word_dup(const char *str, int start, int end, int *flag)
 {
-	char *word;
-	int i;
+	char	*word;
+	int		i;
 
 	word = (char *)malloc(((end - start) + 1) * sizeof(char));
 	if (!word)
@@ -75,9 +67,9 @@ static char *word_dup(const char *str, int start, int end, int *flag)
 	return (word);
 }
 
-char **ft_split(char const *str, char c)
+char	**ft_split(char const *str, char c)
 {
-	t_vars var;
+	t_vars	var;
 
 	if (!str)
 		return (NULL);

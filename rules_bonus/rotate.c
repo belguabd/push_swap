@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 08:12:27 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/02 11:40:30 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:48:17 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ra(t_nbrs **stacka)
 			last = last->next;
 		last->next = temp;
 		temp->next = NULL;
-		write(1, "ra\n", 3);
 	}
 }
 
@@ -46,7 +45,6 @@ void	rb(t_nbrs **stackb)
 			last = last->next;
 		last->next = temp;
 		temp->next = NULL;
-		write(1, "rb\n", 3);
 	}
 }
 
@@ -72,5 +70,4 @@ void	rr(t_nbrs **stacka, t_nbrs **stackb)
 {
 	ft_reverse_rotate(stacka);
 	ft_reverse_rotate(stackb);
-	write(1, "rr\n", 3);
 }

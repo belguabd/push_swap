@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:26:27 by belguabd          #+#    #+#             */
-/*   Updated: 2024/01/31 18:26:43 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:50:48 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_best_move(int size, int move)
 
 void	get_pos(t_nbrs **stackb, int a, int *big_pos, int *small_pos)
 {
-	int		size;
 	t_nbrs	*temp;
+	int		size;
 
 	(*big_pos) = 0;
 	(*small_pos) = 0;

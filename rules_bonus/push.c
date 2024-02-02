@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_end.c                                    :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 16:44:47 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/02 12:05:12 by belguabd         ###   ########.fr       */
+/*   Created: 2024/01/22 12:29:16 by belguabd          #+#    #+#             */
+/*   Updated: 2024/02/02 11:46:30 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	check_repeat(t_nbrs **lst, t_nbrs *new)
+/* Moves the top element from stack B to stack A.*/
+void	pa(t_nbrs **stacka, t_nbrs **stackb)
 {
-	t_nbrs	*current;
+	t_nbrs	*top_b;
 
-	current = *lst;
-	while (current)
+	if (stackb && (*stackb))
 	{
-		if (current->number == new->number)
-			return (true);
-		current = current->next;
+		top_b = *stackb;
+		*stackb = top_b->next;
+		top_b->next = *stacka;
+		*stacka = top_b;
 	}
-	return (false);
 }
 
-void	ft_lstadd_end(t_nbrs **lst, t_nbrs *new)
+/* Moves the top element from stack A to stack B.*/
+void	pb(t_nbrs **stacka, t_nbrs **stackb)
 {
-	t_nbrs	*current;
+	t_nbrs	*top_a;
 
-	if (check_repeat(lst, new))
-		exit(write(2, "Error\n", 6));
-	if (!*lst)
+	if (stacka && (*stacka))
 	{
-		*lst = new;
-		return ;
+		top_a = *stacka;
+		*stacka = top_a->next;
+		top_a->next = *stackb;
+		*stackb = top_a;
 	}
-	current = *lst;
-	while (current->next)
-		current = current->next;
-	current->next = new;
 }
