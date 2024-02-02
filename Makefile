@@ -18,15 +18,15 @@ RM = rm -rf
 
 SRC=push_swap.c\
 	$(PARSING)/parsing.c \
-	$(UTILS)/ft_split.c $(UTILS)/ft_lstsize.c  $(UTILS)/ft_lstadd_end.c $(UTILS)/ft_addnew_nbr.c $(UTILS)/ft_strlen.c\
+	$(UTILS)/ft_split.c $(UTILS)/ft_lstsize.c  $(UTILS)/ft_lstadd_end.c $(UTILS)/ft_addnew_nbr.c $(UTILS)/ft_strlen.c $(UTILS)/ft_free.c\
 	$(RULES)/push.c $(RULES)/swap.c $(RULES)/rotate.c $(RULES)/reverse_rotate.c \
-	$(SORT)/sort_normal.c $(SORT)/sort_big.c $(SORT)/sort_big_utils.c $(SORT)/sort_normal_utils.c \
+	$(SORT)/sort_normal.c $(SORT)/sort_big.c $(SORT)/sort_big_utils.c $(SORT)/sort_normal_utils.c\
 
 
 SRC_BONUS=ft_bonus.c \
 	$(PARSING)/parsing.c \
 	$(GET_NEXT_LINE)/get_next_line.c $(GET_NEXT_LINE)/get_next_line_utils.c \
-	$(UTILS)/ft_split.c $(UTILS)/ft_lstsize.c  $(UTILS)/ft_lstadd_end.c $(UTILS)/ft_addnew_nbr.c $(UTILS)/ft_strlen.c\
+	$(UTILS)/ft_split.c $(UTILS)/ft_lstsize.c  $(UTILS)/ft_lstadd_end.c $(UTILS)/ft_addnew_nbr.c $(UTILS)/ft_strlen.c $(UTILS)/ft_free.c\
 	$(RULES_BONUS)/push.c $(RULES_BONUS)/swap.c $(RULES_BONUS)/rotate.c $(RULES_BONUS)/reverse_rotate.c \
 
 OBJB = $(SRC_BONUS:.c=.o)

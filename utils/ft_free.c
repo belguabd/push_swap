@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_addnew_nbr.c                                    :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 16:51:17 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/02 17:17:36 by belguabd         ###   ########.fr       */
+/*   Created: 2024/02/02 16:24:14 by belguabd          #+#    #+#             */
+/*   Updated: 2024/02/02 17:20:05 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_nbrs	*ft_addnew_nbr(int number)
+void ft_free_split(char **res)
 {
-	t_nbrs	*p;
+	int i = 0;
+	while (res[i])
+		free(res[i++]);
+	free(res);
+}
 
-	p = (t_nbrs *)malloc(sizeof(t_nbrs));
-	if (!p)
-		return (NULL);
-	p->number = number;
-	p->index = 0;
-	p->next = NULL;
-	return (p);
+void	ft_lstclear(t_nbrs **stack)
+{
+	t_nbrs	*tmp;
+
+	while (stack && *stack)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
+	// *stack = NULL;
 }

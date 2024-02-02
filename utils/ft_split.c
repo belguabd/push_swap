@@ -6,13 +6,13 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 05:11:22 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/02 12:07:05 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:45:40 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_free(char **res, char *str, int index)
+static int	ft_free(char **res, char *str, int index)
 {
 	int	i;
 

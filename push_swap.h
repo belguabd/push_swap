@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/02 12:56:52 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:12:59 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ size_t	ft_strlen(const char *s);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
-/*part parsing*/
-int		parsing(const char *str);
 typedef struct Numbers
 {
 	int				number;
@@ -35,6 +33,8 @@ typedef struct Numbers
 	struct Numbers	*next;
 
 }	t_nbrs;
+/*part parsing*/
+int	parsing(char *str , t_nbrs **stacka);
 /* Instructions */
 void	sa(t_nbrs **stacka);
 void	sb(t_nbrs **stackb);
@@ -60,7 +60,7 @@ typedef struct s_vars
 	int		flage;
 	int		start;
 }	t_vars;
-void	ft_lstadd_end(t_nbrs **lst, t_nbrs *new);
+void ft_lstadd_end(t_nbrs **lst, t_nbrs *new ,char **res);
 t_nbrs	*ft_addnew_nbr(int number);
 
 /*Implementation of the sorting algorithm for normal*/
@@ -83,4 +83,7 @@ void	ft_sort_two(t_nbrs *stacka);
 void	ft_sort_three(t_nbrs **stacka);
 void	process_stack_four(t_nbrs **stacka, t_nbrs **stackb);
 void	process_stack_five(t_nbrs **stacka, t_nbrs **stackb);
+/*leaks*/
+void	ft_lstclear(t_nbrs **stack);
+void	ft_free_split(char **res);
 #endif
