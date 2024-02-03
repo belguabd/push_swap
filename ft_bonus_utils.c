@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 08:47:59 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/03 09:14:23 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:58:24 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,16 @@ void	parse_init_stacka(t_nbrs **stacka, char **av)
 	i = 1;
 	while (av[i])
 	{
-		if (av[i][0] == '\0')
-			exit(write(2, "Error\n", 6));
 		res = ft_split(av[i], ' ');
+		if (!res)
+		{
+			ft_lstclear(stacka);
+			exit(1);
+		}
 		if (!res[0])
 		{
 			ft_free_split(res);
+			ft_lstclear(stacka);
 			exit(write(2, "Error\n", 6));
 		}
 		fill_stacka(res, stacka);
