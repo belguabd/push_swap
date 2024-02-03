@@ -6,7 +6,7 @@
 /*   By: belguabd <belguabd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:08:09 by belguabd          #+#    #+#             */
-/*   Updated: 2024/02/02 23:35:21 by belguabd         ###   ########.fr       */
+/*   Updated: 2024/02/03 08:59:01 by belguabd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,9 @@ void	process_stack_five(t_nbrs **stacka, t_nbrs **stackb);
 void	ft_lstclear(t_nbrs **stack);
 void	ft_free_split(char **res);
 void	ft_exit(t_nbrs **stacka, char **str);
+/*bonus*/
+void	parse_init_stacka(t_nbrs **stacka, char **av);
+void	fill_stacka(char **res, t_nbrs **stacka);
+bool	check_sorted(t_nbrs *head);
+int		ft_strcmp(char *str1, char *str2);
 #endif
